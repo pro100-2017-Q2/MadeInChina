@@ -6,6 +6,7 @@ public class Square {
 
     public ControlNode topLeft, topRight, bottomLeft, bottomRight;
     public Node centerTop, centerRight, centerBottom, centerLeft;
+    public int configurationOfActive;
 
     public Square(ControlNode _topLeft, ControlNode _topRight, ControlNode _bottomLeft, ControlNode _bottomRight)
     {
@@ -18,5 +19,14 @@ public class Square {
         centerRight = bottomRight.above;
         centerBottom = bottomLeft.right;
         centerLeft = bottomLeft.above;
+
+        if (topLeft.active)
+            configurationOfActive += 8;
+        if (topRight.active)
+            configurationOfActive += 4;
+        if (bottomLeft.active)
+            configurationOfActive += 2;
+        if (bottomRight.active)
+            configurationOfActive += 1;
     }
 }
