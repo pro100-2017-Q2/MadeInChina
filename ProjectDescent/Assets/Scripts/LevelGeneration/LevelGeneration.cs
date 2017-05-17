@@ -13,6 +13,9 @@ public class LevelGeneration : MonoBehaviour
     [Range(0,100)]
     public int fillPercent;
 
+    [Range(1, 5)]
+    public int borderSize = 1;
+
     string seed;
 
     void Start()
@@ -38,8 +41,25 @@ public class LevelGeneration : MonoBehaviour
             SmoothLevel();
         }
 
+        int[,] borderedLevel = new int[width + borderSize * 2, height + borderSize * 2];
+
+        for(int x = 0; x < borderedLevel.GetLength(0); x++)
+        {
+            for(int y = 0; y < borderedLevel.GetLength(1); y++)
+            {
+                if(x >= borderSize && x < width + borderSize && y >= borderSize && y < height + borderSize)
+                {
+                    borderedLevel[x, y] = levelMap[x - borderSize, y - borderSize];
+                }
+                else
+                {
+                    borderedLevel[x, y] = 1;
+                }
+            }
+        }
+
         LevelMeshGeneration levelMesh = GetComponent<LevelMeshGeneration>();
-        levelMesh.GenerateLevelMesh(levelMap, 1);
+        levelMesh.GenerateLevelMesh(borderedLevel, 1);
 
     }
 
