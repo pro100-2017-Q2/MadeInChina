@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : CharacterBase, Ihittable, IDmageable
+
+    {
 
     private int health = 3;
     private int armour = 3;
@@ -30,7 +32,15 @@ public class Player : MonoBehaviour {
         set { attackDamage = value; }
     }
 
+    public void DoDamage()
+    {
+        //Deal damage to enemy
+    }
 
+    public void TakeDamage()
+    {
+        //Take/ receive damage
+    }
 
     // Use this for initialization
     void Start ()

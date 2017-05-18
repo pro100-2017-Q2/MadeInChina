@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
-
+public class Enemy : CharacterBase, Ihittable , IDmageable
+{
+   
     private int health = 3;
     private int armour = 3;
     private int movementSpeed = 1;
@@ -30,9 +31,10 @@ public class Player : MonoBehaviour {
         set { attackDamage = value; }
     }
 
-    public void DoDamage()
+    public void Damage()
     {
         //Deal damage to enemy
+        
     }
 
     public void TakeDamage()
@@ -40,15 +42,4 @@ public class Player : MonoBehaviour {
         //Take/ receive damage
     }
 
-    // Use this for initialization
-    void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
 }
