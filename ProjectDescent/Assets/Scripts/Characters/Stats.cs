@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 
-public class Stats : MonoBehaviour, INotifyPropertyChanged{
-
-    public event PropertyChangedEventHandler PropertyChanged;
+public abstract class Stats : MonoBehaviour{
+    
     private float health = 5F;
     private float attackDamage = 0.5F;
     private int moveSpeed = 1;
@@ -45,15 +43,19 @@ public class Stats : MonoBehaviour, INotifyPropertyChanged{
         }
     }
 
-
     public float DealDamage()
     {
         return AttackDamage;
     }
     public void TakeDamage(float takenDamage)
     {
-        Health = Health - takenDamage;
+        //Health = Health - takenDamage;
     }
+    public void IncreaseArmour(float armour)
+    {
+        //Armour = Armour + armour;
+    }
+
     // Use this for initialization
     void Start () {
 		
