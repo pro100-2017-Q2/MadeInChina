@@ -17,6 +17,9 @@ public class LevelGeneration : MonoBehaviour
     [Range(1, 5)]
     public int borderSize = 1;
 
+    [Range(2, 5)]
+    public int radius = 2;
+
     string seed;
 
     void Start()
@@ -202,7 +205,88 @@ public class LevelGeneration : MonoBehaviour
     void CreatePassage(Room roomA, Room roomB, Tile tileA, Tile tileB)
     {
         Room.ConnectRooms(roomA, roomB);
-        Debug.DrawLine(TileToWorld(tileA), TileToWorld(tileB), Color.green, 100);
+        List<Tile> line = GetLine(tileA, tileB);
+        foreach(Tile t in line)
+        {
+            OpenPassage(t, radius);
+        }
+    }
+
+    void OpenPassage(Tile t, int r)
+    {
+        for(int x = -r; x <= r; x++)
+        {
+            for(int y = -r; y <= r; y++)
+            {
+                if(x*x + y*y <= r*r)
+                {
+                    int passageX = t.X + x;
+                    int passageY = t.Y + y;
+                    if(IsInLevelRange(passageX, passageY))
+                    {
+                        levelMap[passageX, passageY] = 0;
+                    }
+                }
+            }
+        }
+    }
+
+    List<Tile> GetLine(Tile from, Tile to)
+    {
+        List<Tile> line = new List<Tile>();
+        int x = from.X;
+        int y = from.Y;
+
+        int dx = to.X - from.X;
+        int dy = to.Y - from.Y;
+
+        bool inverted = false;
+        int step = Math.Sign(dx);
+        int gradientStep = Math.Sign(dy);
+
+        int longest = Mathf.Abs(dx);
+        int shortest = Mathf.Abs(dy);
+
+        if(longest < shortest)
+        {
+            inverted = true;
+            longest = Mathf.Abs(dy);
+            shortest = Mathf.Abs(dx);
+
+            step = Math.Sign(dy);
+            gradientStep = Math.Sign(dx);
+        }
+
+        int accumulation = longest / 2;
+        for(int i = 0; i < longest; i++)
+        {
+            line.Add(new Tile(x, y));
+
+            if (inverted)
+            {
+                y += step;
+            }
+            else
+            {
+                x += step;
+            }
+
+            accumulation += shortest;
+            if(accumulation >= longest)
+            {
+                if (inverted)
+                {
+                    x += gradientStep;
+                }
+                else
+                {
+                    y += gradientStep;
+                }
+                accumulation -= longest;
+            }
+        }
+
+        return line;
     }
 
     Vector3 TileToWorld(Tile tile)
@@ -215,7 +299,7 @@ public class LevelGeneration : MonoBehaviour
         List<List<Tile>> regions = new List<List<Tile>>();
         int[,] levelFlags = new int[width, height];
 
-        for(int x = 0; x < height; x++)
+        for(int x = 0; x < width; x++)
         {
             for(int y = 0; y < height; y++)
             {

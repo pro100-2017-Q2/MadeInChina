@@ -6,6 +6,8 @@ public class LevelMeshGeneration : MonoBehaviour {
 
     public SquareGrid squareGrid;
     public MeshFilter walls;
+    public MeshCollider wallCollider;
+    public MeshFilter cave;
 
     List<Vector3> vertices;
     List<int> triangles;
@@ -34,7 +36,7 @@ public class LevelMeshGeneration : MonoBehaviour {
         }
 
         Mesh mesh = new Mesh();
-        GetComponent<MeshFilter>().mesh = mesh;
+        cave.mesh = mesh;
 
         mesh.vertices = vertices.ToArray();
         mesh.triangles = triangles.ToArray();
@@ -78,6 +80,7 @@ public class LevelMeshGeneration : MonoBehaviour {
         wallMesh.triangles = wallTriangles.ToArray();
         walls.mesh = wallMesh;
 
+        wallCollider.sharedMesh = wallMesh;
     }
 
     void CalcMeshOutlines()
