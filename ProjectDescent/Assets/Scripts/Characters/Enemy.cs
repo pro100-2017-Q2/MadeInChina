@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : CharacterBase, Ihittable , IDmageable
+public class Enemy : BaseClass
 {
    
     private int health = 3;
@@ -10,36 +10,6 @@ public class Enemy : CharacterBase, Ihittable , IDmageable
     private int movementSpeed = 1;
     private int attackDamage = 1;
 
-    public int Health
-    {
-        get { return health; }
-        set { health = value; }
-    }
-    public int Armour
-    {
-        get { return armour; }
-        set { armour = value; }
-    }
-    public int MovementSpeed
-    {
-        get { return movementSpeed; }
-        set { movementSpeed = value; }
-    }
-    public int AttackDamage
-    {
-        get { return attackDamage; }
-        set { attackDamage = value; }
-    }
 
-    public void Damage()
-    {
-        //Deal damage to enemy
-        
-    }
-
-    public void TakeDamage()
-    {
-        //Take/ receive damage
-    }
 
 }
