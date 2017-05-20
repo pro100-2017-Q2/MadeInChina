@@ -19,7 +19,7 @@ public class SquareGrid  {
         {
             for(int y = 0; y < nodeCountY; y++)
             {
-                Vector3 pos = new Vector3(-levelWidth / 2 + x * squareSize, 0, -levelHeight / 2 + y * squareSize);
+                Vector3 pos = new Vector3(-levelWidth / 2 + x * squareSize + squareSize / 2, 0, -levelHeight / 2 + y * squareSize + squareSize / 2);
                 controlNodes[x,y] = new ControlNode(pos, level[x, y] == 1, squareSize);
             }
         }
