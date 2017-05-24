@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    public float speed = 200;
-    private Rigidbody rig;
+    public float speed = 1;
+    //private Rigidbody2D rig;
+    private SpriteRenderer spr;
+    Vector2 velocity;
+
     void Start()
     {
-        rig = GetComponent<Rigidbody>();
+
+        //rig = GetComponentInChildren<Rigidbody2D>();
+        spr = GetComponentInChildren<SpriteRenderer>();
     }
+
+    void Update()
+    {
+        velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * speed;
+        //rig.MovePosition(new Vector2(transform.position.x, transform.position.z) + velocity * Time.deltaTime);
+        spr.sprite. = new Vector2(transform.position.x, transform.position.z) + velocity * Time.deltaTime;
+    }
+
     void FixedUpdate()
     {
-        float hAxis = Input.GetAxis("Horizontal");
-        float vAxis = Input.GetAxis("Vertical");
-
-        float moveX = hAxis * speed * Time.deltaTime;
-        float moveY = vAxis * speed * Time.deltaTime;
-        //rig.MovePosition(transform.position + movement);
-        rig.AddForce(moveX, 0f, moveY);
     }
 }
