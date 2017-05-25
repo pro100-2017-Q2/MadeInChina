@@ -9,22 +9,21 @@ public class HighScores : MonoBehaviour {
     const string webURL = "http://dreamlo.com/lb/";
 
     public Highscore[] highscoresList;
+    private static HighScores instance;
+    private DisplayHighScores highscoreDisplay;
 
     private void Awake()
     {
-        AddNewHighscore("Deyton", 50);
-        AddNewHighscore("Bob", 80);
-        AddNewHighscore("Mary", 22);
-
-        DownloadHighscores();
+        instance = this;
+        highscoreDisplay = GetComponent<DisplayHighScores>();
     }
 
-    public void AddNewHighscore(string username, int score)
+    public static void AddNewHighscore(string username, int score)
     {
-        StartCoroutine(UploadNewHighscore(username, score));
+        instance.StartCoroutine(instance.UploadNewHighscore(username, score));
     }
 
-    IEnumerator UploadNewHighscore(string username, int score)
+    private IEnumerator UploadNewHighscore(string username, int score)
     {
         WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(username) + "/" + score);
         yield return www;
@@ -32,6 +31,7 @@ public class HighScores : MonoBehaviour {
         if(string.IsNullOrEmpty(www.error))
         {
             print("Upload Successful");
+            DownloadHighscores();
         }
         else
         {
@@ -52,6 +52,7 @@ public class HighScores : MonoBehaviour {
         if (string.IsNullOrEmpty(www.error))
         {
             FormatHighscores(www.text);
+            highscoreDisplay.OnHighscoresDownloaded(highscoresList);
         }
         else
         {
