@@ -20,6 +20,9 @@ public class LevelGeneration : MonoBehaviour
     [Range(2, 5)]
     public int radius = 2;
 
+    public List<Room> Rooms;
+    public Room mainRoom;
+
     string seed;
 
     void Start()
@@ -107,6 +110,9 @@ public class LevelGeneration : MonoBehaviour
         survivingRooms.Sort();
         survivingRooms[0].isMainRoom = true;
         survivingRooms[0].isAccessibleFromMainRoom = true;
+
+        Rooms = survivingRooms;
+        mainRoom = survivingRooms[0];
 
         ConnectClosestRooms(survivingRooms);
     }
