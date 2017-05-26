@@ -5,32 +5,29 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour {
 
-    public GameObject levelPrefab;
     public GameObject playerPrefab;
     System.Random rand = new System.Random();
 
     public static LevelGeneration level;
+    public static Player player;
 
-    public bool isStart = true;
-
-	// Use this for initialization
-	void Start () {
-        Instantiate(levelPrefab);
+    void Awake()
+    {
         level = FindObjectOfType<LevelGeneration>();
+    }
 
-	}
+	void Start () {
+
+        Vector3 playerStart = level.TileToWorld(level.mainRoom.tiles[rand.Next(level.mainRoom.tiles.Count)]);
+        GameObject playerObject = Instantiate(playerPrefab, playerStart, Quaternion.identity);
+
+
+        FindObjectOfType<CameraController>().player = playerObject;
+        player = playerObject.GetComponent<Player>();
+    }
 	
-	// Update is called once per frame
 	void Update () {
-        if (isStart)
-        {
-            Tile playerStart = level.mainRoom.tiles[rand.Next(level.mainRoom.tiles.Count)];
 
-            Instantiate(playerPrefab, new Vector3(playerStart.X, 0, playerStart.Y), Quaternion.identity);
-
-            isStart = false;
-        }
-       
 		
 	}
 }

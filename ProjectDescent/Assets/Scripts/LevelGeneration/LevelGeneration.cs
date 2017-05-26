@@ -295,9 +295,14 @@ public class LevelGeneration : MonoBehaviour
         return line;
     }
 
-    Vector3 TileToWorld(Tile tile)
+    public Vector3 TileToWorld(Tile tile)
     {
         return new Vector3(-width / 2 + .5f + tile.X, 2, -height / 2 + .5f + tile.Y);
+    }
+
+    public Tile WorldToTile(Vector3 worldCoord)
+    {
+        return new Tile((int)(width * 2 - .5f - worldCoord.x), (int)(height * 2 - .5f - worldCoord.y));
     }
 
     List<List<Tile>> GetRegions(int type)
