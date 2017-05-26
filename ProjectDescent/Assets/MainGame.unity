@@ -237,13 +237,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbd54df0de4f234a841ea0097e0fd4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 0}
   enemies: []
-  spawnValues: {x: 0, y: 0, z: 0}
-  spawnWait: 0
-  spawnMostWait: 0
-  spawnLeastWait: 0
-  startWait: 0
-  stop: 0
+  threshold: 50
+  level: {fileID: 1515256448}
 --- !u!1 &1328273528
 GameObject:
   m_ObjectHideFlags: 0

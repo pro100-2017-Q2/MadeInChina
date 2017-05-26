@@ -1,66 +1,70 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour {
 
 
     //add multiple to one game object
-    public GameObject[] enemies;
+    public GameObject[] enemyPrefabs;
+
+    public List<Enemy> enemies = new List<Enemy>();
+
+    public int threshold = 15;
+
+    public LevelGeneration level;
+
+    System.Random rand = new System.Random();
 
 
-    //boundries for how long we want to spawn objects and
-    //as well as boundries
-    public Vector3 spawnValues;
+    ////boundries for how long we want to spawn objects and
+    ////as well as boundries
+    //public Vector3 spawnValues;
 
 
-    //
-    public float spawnWait;
+    ////
+    //public float spawnWait;
 
-    //time increments when we want to spawn are object to be in
-    public float spawnMostWait;
+    ////time increments when we want to spawn are object to be in
+    //public float spawnMostWait;
 
-    public float spawnLeastWait;
+    //public float spawnLeastWait;
 
-    //
-    public int startWait;
+    ////
+    //public int startWait;
 
-    public bool stop;
+    //public bool stop;
 
-    int randEnemy;
+    //int randEnemy;
 
 
     // Use this for initialization
     void Start()
     {
-        StartCoroutine(waitSpawner());
+        //level = FindObjectOfType<LevelGeneration>();
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        /*
-        spawnSomething();
-        Level = FindObjectOfType<LevelGeneration>();
-        Level.Rooms
-        */
-        spawnWait = Random.Range(spawnLeastWait, spawnMostWait);
-    }
-
-    IEnumerator waitSpawner()
-    {
-        yield return new WaitForSeconds(startWait);
-
-        while (!stop)
+        if (enemies.Count == threshold)
         {
-            randEnemy = Random.Range(0, 2);
-
-            Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), 1, Random.Range(-spawnValues.z, spawnValues.z));
-
-            Instantiate(enemies[randEnemy], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
-
-            yield return new WaitForSeconds(spawnWait);
+            return;
         }
+
+        Room spawnRoom = level.Rooms[rand.Next(level.Rooms.Count)];
+        Tile spawnTile = spawnRoom.tiles[rand.Next(spawnRoom.tiles.Count)];
+
+        GameObject enemy_go = Instantiate(enemyPrefabs[rand.Next(enemyPrefabs.Length)], level.TileToWorld(spawnTile), Quaternion.identity);
+
+        enemies.Add(enemy_go.GetComponent<Enemy>());
     }
+
+    public void DeleteAllEnemies()
+    {
+        DestroyObject(enemies[0]);
+    }
+
 
 }

@@ -292,7 +292,7 @@ public class LevelGeneration : MonoBehaviour
         return line;
     }
 
-    Vector3 TileToWorld(Tile tile)
+    public Vector3 TileToWorld(Tile tile)
     {
         return new Vector3(-width / 2 + .5f + tile.X, 2, -height / 2 + .5f + tile.Y);
     }
