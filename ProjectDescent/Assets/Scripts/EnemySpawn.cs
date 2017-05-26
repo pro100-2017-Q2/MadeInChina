@@ -43,6 +43,7 @@ public class EnemySpawn : MonoBehaviour {
     void Start()
     {
         //level = FindObjectOfType<LevelGeneration>();
+       // DeleteAllEnemies();
     }
 
     // Update is called once per frame
@@ -63,7 +64,7 @@ public class EnemySpawn : MonoBehaviour {
 
     public void DeleteAllEnemies()
     {
-        DestroyObject(enemies[0]);
+        Destroy(gameObject);
     }
 
 
