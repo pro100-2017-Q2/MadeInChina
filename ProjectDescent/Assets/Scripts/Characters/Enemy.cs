@@ -2,51 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : Stats {
 
-    private int health;
-    private int armour;
-    private int attackdamage;
-    private int movementSpeed;
 
-	// Use this for initialization
 	void Start () {
-		
+        while(LevelController.level.Rooms == null)
+        {
+            tile = LevelController.level.WorldToTile(this.transform.position);
+            Debug.Log(tile.X + " " + tile.Y);
+            foreach(Room r in LevelController.level.Rooms)
+            {
+                if (r.tiles.Contains(tile))
+                {
+                    room = r;
+                    return;
+                }
+            }
+
+        }
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
-
-    
-    public int Health
-    {
-        get { return health; }
-        set { health = value; }
-    }
-
-
-    public int Armour
-    {
-        get { return armour; }
-        set { armour = value; }
-    }
-
-
-    public int AttackDamage
-    {
-        get { return attackdamage; }
-        set { attackdamage = value; }
-    }
-
-    public int MovementSpeed
-    {
-        get { return movementSpeed; }
-        set { movementSpeed = value; }
-    }
-
-
-
 
 }
