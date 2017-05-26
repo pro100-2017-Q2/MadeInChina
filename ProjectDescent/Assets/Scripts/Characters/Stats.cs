@@ -10,6 +10,9 @@ public abstract class Stats : MonoBehaviour{
     private float armour;
     private Weapon weapon;
 
+    public Room room;
+    public Tile tile;
+
     public float Health
     {
         get { return health; }
