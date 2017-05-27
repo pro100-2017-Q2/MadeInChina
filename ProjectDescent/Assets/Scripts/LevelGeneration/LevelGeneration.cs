@@ -20,7 +20,8 @@ public class LevelGeneration : MonoBehaviour
     [Range(2, 5)]
     public int radius = 2;
 
-    public List<Room> Rooms; 
+    public List<Room> Rooms;
+    public Room mainRoom;
 
     string seed;
 
@@ -295,6 +296,11 @@ public class LevelGeneration : MonoBehaviour
     public Vector3 TileToWorld(Tile tile)
     {
         return new Vector3(-width / 2 + .5f + tile.X, 2, -height / 2 + .5f + tile.Y);
+    }
+
+    public Tile WorldToTile(Vector3 pos)
+    {
+        return new Tile((int)(width * 2 - .5f - pos.x), (int)(height * 2 - .5f - pos.y));
     }
 
     List<List<Tile>> GetRegions(int type)

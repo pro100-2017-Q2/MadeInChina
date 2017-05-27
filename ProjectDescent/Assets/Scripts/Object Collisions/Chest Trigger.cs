@@ -25,7 +25,7 @@ public class ChestTrigger : MonoBehaviour {
         if (randomNumber >=50 && randomNumber <= 75)
         {
             //Player gains strength
-            Stats.Strength += 1;
+            //Stats.Strength += 1;
         }
         if (randomNumber >= 76)
         {
