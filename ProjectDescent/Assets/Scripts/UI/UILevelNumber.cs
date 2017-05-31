@@ -4,14 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UILevelNumber : MonoBehaviour {
-    Text levelText;
-	// Use this for initialization
-	void Start () {
+    public Text levelText;
+    // Use this for initialization
+    void Start()
+    {
         levelText = GetComponent<Text>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        DisplayLevelCount();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        DisplayLevelCount();
+    }
+
+    public void DisplayLevelCount()
+    {
+        levelText.text = "Level: " + LevelController.level.levelCount.ToString();
+    }
+    
 }

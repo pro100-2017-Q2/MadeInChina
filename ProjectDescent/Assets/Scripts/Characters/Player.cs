@@ -9,6 +9,8 @@ public class Player : Stats
     private float armour = 0.0F;
     private int[] hand = new int[2];
 
+    public int enemiesKilled = 0;
+
     void Start()
     {
         while (LevelController.level.Rooms == null)

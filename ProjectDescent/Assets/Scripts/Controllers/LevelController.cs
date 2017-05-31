@@ -18,9 +18,9 @@ public class LevelController : MonoBehaviour {
 
 	void Start () {
 
+        Debug.Log(level.mainRoom);
         Vector3 playerStart = level.TileToWorld(level.mainRoom.tiles[rand.Next(level.mainRoom.tiles.Count)]);
         GameObject playerObject = Instantiate(playerPrefab, playerStart, Quaternion.identity);
-
 
         FindObjectOfType<CameraController>().player = playerObject;
         player = playerObject.GetComponent<Player>();

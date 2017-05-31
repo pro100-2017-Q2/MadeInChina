@@ -24,6 +24,7 @@ public class LevelGeneration : MonoBehaviour
     public Room mainRoom;
 
     string seed;
+    public int levelCount = 1;
 
     void Start()
     {
@@ -110,9 +111,10 @@ public class LevelGeneration : MonoBehaviour
         survivingRooms.Sort();
         survivingRooms[0].isMainRoom = true;
         survivingRooms[0].isAccessibleFromMainRoom = true;
+        Rooms = survivingRooms;
+        mainRoom = survivingRooms[0];
 
         ConnectClosestRooms(survivingRooms);
-        Rooms = survivingRooms;
     }
 
     void ConnectClosestRooms(List<Room> allRooms, bool forceAccessibilityFromMainRoom = false)
