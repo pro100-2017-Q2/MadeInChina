@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4221540041182540}
   - component: {fileID: 212991312303912294}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerIdleFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 33779158955054012}
   - component: {fileID: 135871170382375466}
   - component: {fileID: 23900090380003108}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 64273388447200750}
   - component: {fileID: 54974728955144990}
   - component: {fileID: 23742200853050500}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,6 +217,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96777d4e38943bf4dabf6f2aac14ed81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 3
+  attackDamage: 1
+  moveSpeed: 4
+  armour: 0
+  weapon: {fileID: 0}
+  enemiesKilled: 0
 --- !u!114 &114514376152382982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,7 +234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ed76c462c6e6c4c8a68d9e9424c369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
 --- !u!135 &135871170382375466
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -270,8 +275,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1362702095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c07b9e56f4c833a429b776e33648f40f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

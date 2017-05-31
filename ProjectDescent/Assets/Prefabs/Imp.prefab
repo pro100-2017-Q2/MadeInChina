@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4246296024918648}
   - component: {fileID: 212909887419057144}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ImpFrontIdle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 33732326002869418}
   - component: {fileID: 135683622521931008}
   - component: {fileID: 23943145957559638}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,8 @@ GameObject:
   - component: {fileID: 54546760238826686}
   - component: {fileID: 23716973780340922}
   - component: {fileID: 114811328246710834}
-  m_Layer: 0
+  - component: {fileID: 114310579448489072}
+  m_Layer: 8
   m_Name: Imp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,6 +206,18 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
+--- !u!114 &114310579448489072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1781966469384388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a730f892c2c1b0449647a8befa6b511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
 --- !u!114 &114811328246710834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,6 +229,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6eb62ab9f5ebf43a6de5359a42db9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 5
+  attackDamage: 1
+  moveSpeed: 5
+  armour: 0
+  weapon: {fileID: 0}
 --- !u!135 &135683622521931008
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -257,8 +275,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1362702095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300016, guid: cdbde1a83163758449c2b7fa443542a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
