@@ -6,24 +6,11 @@ public class Enemy : Stats {
 
 
 	void Start () {
-        while(LevelController.level.Rooms == null)
-        {
-            tile = LevelController.level.WorldToTile(this.transform.position);
-            Debug.Log(tile.X + " " + tile.Y);
-            foreach(Room r in LevelController.level.Rooms)
-            {
-                if (r.tiles.Contains(tile))
-                {
-                    room = r;
-                    return;
-                }
-            }
-
-        }
+        tile = LevelController.level.WorldToTile(transform.position);
 	}
 	
 	void Update () {
-		
-	}
+        tile = LevelController.level.WorldToTile(transform.position);
+    }
 
 }

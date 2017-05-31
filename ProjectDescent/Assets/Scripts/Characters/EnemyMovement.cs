@@ -4,43 +4,33 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
-    public int AgroRange;
     public Enemy enemy;
+    Vector3 velocity;
+    Rigidbody rig;
 
 	void Start () {
         enemy = this.GetComponent<Enemy>();
+        rig = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (PlayerInRange())
-        {
-            PathToPlayer();
-        }
-        else
-        {
-            PathToRandomTile();
-        }
+        PathToPlayer();
 	}
 
-    bool PlayerInRange()
+    bool PlayerInRange(int range)
     {
         Tile playerTile = LevelController.player.tile;
-        Debug.Log(playerTile.X + " " + playerTile.Y);
-        if ((playerTile.X >= enemy.tile.X && playerTile.X < enemy.tile.X + AgroRange) || (playerTile.Y >= enemy.tile.Y && playerTile.Y < enemy.tile.Y + AgroRange))
+        if ((playerTile.X >= enemy.tile.X && playerTile.X < enemy.tile.X + range) || (playerTile.Y >= enemy.tile.Y && playerTile.Y < enemy.tile.Y + range))
         {
             return true;
         }
         return false;
     }
 
-    void PathToRandomTile()
-    {
-        Debug.Log("No Enemy");
-    }
-
     void PathToPlayer()
     {
-        Debug.Log("Enemy");
+        velocity = (LevelController.player.transform.position - transform.position).normalized * enemy.MoveSpeed;
+        rig.MovePosition(transform.position + velocity * Time.deltaTime);
     }
 }
