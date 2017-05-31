@@ -22,6 +22,7 @@ public class LevelGeneration : MonoBehaviour
 
     public List<Room> Rooms;
     public Room mainRoom;
+    public List<Tile> allRoomTiles;
 
     string seed;
     public int levelCount = 1;
@@ -33,10 +34,7 @@ public class LevelGeneration : MonoBehaviour
 	
 	void Update ()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GenerateLevel();
-        }
+        
 	}
 
     void GenerateLevel()
@@ -48,6 +46,8 @@ public class LevelGeneration : MonoBehaviour
         {
             SmoothLevel();
         }
+
+        allRoomTiles = new List<Tile>();
 
         ProcessLevel();
 
@@ -113,6 +113,14 @@ public class LevelGeneration : MonoBehaviour
         survivingRooms[0].isAccessibleFromMainRoom = true;
         Rooms = survivingRooms;
         mainRoom = survivingRooms[0];
+
+        foreach(Room r in Rooms)
+        {
+            foreach(Tile t in r.tiles)
+            {
+                allRoomTiles.Add(t);
+            }
+        }
 
         ConnectClosestRooms(survivingRooms);
     }
@@ -302,7 +310,7 @@ public class LevelGeneration : MonoBehaviour
 
     public Tile WorldToTile(Vector3 pos)
     {
-        return new Tile((int)(width * 2 - .5f - pos.x), (int)(height * 2 - .5f - pos.y));
+        return new Tile((int)(width * 2 - .5f - pos.x), (int)(height * 2 - .5f - pos.z));
     }
 
     List<List<Tile>> GetRegions(int type)

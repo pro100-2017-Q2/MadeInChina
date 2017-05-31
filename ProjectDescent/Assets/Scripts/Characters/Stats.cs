@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Stats : MonoBehaviour{
+public class Stats : MonoBehaviour{
     
-    private float health = 5F;
-    private float attackDamage = 0.5F;
-    private int moveSpeed = 1;
-    private float armour;
-    private Weapon weapon;
+    public float health = 5F;
+    public float attackDamage = 0.5F;
+    public float moveSpeed = 1;
+    public float armour;
+    public Weapon weapon;
 
     public Room room;
     public Tile tile;
@@ -29,7 +29,7 @@ public abstract class Stats : MonoBehaviour{
             attackDamage = value;
         }
     }
-    public int MoveSpeed
+    public float MoveSpeed
     {
         get { return moveSpeed; }
         set
