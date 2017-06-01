@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour {
         PathToPlayer();
 	}
 
-    bool PlayerInRange(int range)
+    public static bool PlayerInRange(int range, Enemy enemy)
     {
         Tile playerTile = LevelController.player.tile;
         if ((playerTile.X >= enemy.tile.X && playerTile.X < enemy.tile.X + range) || (playerTile.Y >= enemy.tile.Y && playerTile.Y < enemy.tile.Y + range))
