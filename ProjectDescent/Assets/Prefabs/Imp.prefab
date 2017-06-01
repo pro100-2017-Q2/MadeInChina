@@ -229,11 +229,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6eb62ab9f5ebf43a6de5359a42db9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
-  attackDamage: 1
-  moveSpeed: 5
-  armour: 0
-  weapon: {fileID: 0}
+  Health: 3
+  AttackDamage: 2
+  MoveSpeed: 3.5
+  Armour: 1
+  attackRange: 2
 --- !u!135 &135683622521931008
 SphereCollider:
   m_ObjectHideFlags: 1

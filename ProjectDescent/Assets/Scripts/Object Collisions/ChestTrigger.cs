@@ -11,10 +11,8 @@ public class ChestTrigger : MonoBehaviour {
     {
         if(col.GetComponentInParent<Player>() == null)
         {
-            Debug.Log("Not Player");
             return;
         }
-        Debug.Log("You have openned the chest.");
         
         int randomNumber = Random.Range(1, 101);
 
