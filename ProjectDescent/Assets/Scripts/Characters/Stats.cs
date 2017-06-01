@@ -7,7 +7,7 @@ public class Stats : MonoBehaviour{
     public float health = 5F;
     public float attackDamage = 0.5F;
     public float moveSpeed = 1;
-    public float armour;
+    public float armour = 1;
     public Weapon weapon;
 
     public Room room;
