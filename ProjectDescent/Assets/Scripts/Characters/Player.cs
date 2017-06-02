@@ -6,6 +6,8 @@ public class Player : Stats
 {
     public int enemiesKilled = 0;
 
+    public Collider attackCollider;
+
     bool usingSword = false;
     int swordDamage = 1;
 
@@ -46,6 +48,13 @@ public class Player : Stats
         }
 
         tile = LevelController.level.WorldToTile(transform.position);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Attack!!");
+            Vector3 mouseDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+            Instantiate(attackCollider, (transform.position - mouseDir), Quaternion.identity);
+        }
     }
 
     void OnCollisionEnter(Collision col)
