@@ -4,68 +4,29 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour{
     
-    public float health = 5F;
-    public float attackDamage = 0.5F;
-    public float moveSpeed = 1;
-    public float armour = 1;
-    public Weapon weapon;
+    public int Health = 5;
+    public int AttackDamage = 1;
+    public float MoveSpeed = 1;
+    public int Armour = 0;
 
-    public Room room;
     public Tile tile;
 
-    public float Health
-    {
-        get { return health; }
-        set
-        {
-            health = value;
-        }
-    }
-    public float AttackDamage
-    {
-        get { return attackDamage; }
-        set
-        {
-            attackDamage = value;
-        }
-    }
-    public float MoveSpeed
-    {
-        get { return moveSpeed; }
-        set
-        {
-            moveSpeed = value;
-        }
-    }
-    public float Armour
-    {
-        get { return armour; }
-        set
-        {
-            armour = value;
-        }
-    }
-
-    public float DealDamage()
+    public int DealDamage()
     {
         return AttackDamage;
     }
-    public void TakeDamage(float takenDamage)
+
+    public void TakeDamage(int takenDamage)
     {
-        //Health = Health - takenDamage;
-    }
-    public void IncreaseArmour(float armour)
-    {
-        //Armour = Armour + armour;
+        if(Armour > 0)
+        {
+            Armour -= takenDamage;
+        }
+        else
+        {
+            Health -= takenDamage;
+        }
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

@@ -1,17 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ChestFunctionality : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-        System.Console.WriteLine("Press (F) to Loot: ");
-        //give this the item logic for item ID.
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class ChestFunctionality : MonoBehaviour
+{
+    
+    public Text chestItem;
+    void Start()
+    {
+        chestItem = GetComponentInChildren<Text>();
+        DisplayChestItem();
+    }
+    void Update()
+    {
+        DisplayChestItem();
+    }
+    public void DisplayChestItem()
+    {
+        chestItem.text = "hello";
+    }
 }
