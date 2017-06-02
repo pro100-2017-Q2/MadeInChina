@@ -650,9 +650,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 904419711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dbd54df0de4f234a841ea0097e0fd4c, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a301a0200200d1468bc85a5bb662a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPrefabs: []
+  spawnedObjects: []
+  threshold: 0
 --- !u!1 &1031773681
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,9 +997,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1405903040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd763a08648ef64428c0aac04d4d999f, type: 3}
+  m_Script: {fileID: 11500000, guid: a8217d0a3b7f9cd43bed4e280a8ea0fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPrefabs:
+  - {fileID: 1789186092448538, guid: a39ad19b8224abe4c8a89c56d9af88a2, type: 2}
+  spawnedObjects: []
+  threshold: 5
 --- !u!1 &1451312251
 GameObject:
   m_ObjectHideFlags: 0

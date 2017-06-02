@@ -1,12 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Steroids {
+public class Steroid : Items
+{
 
     int Strength = 1;
 
-    void UpdateStats()
+    void Start()
+    {
+        Name = "Steroids";
+    }
+
+    public override void UpdateStats()
     {
         LevelController.player.AttackDamage += Strength;
     }

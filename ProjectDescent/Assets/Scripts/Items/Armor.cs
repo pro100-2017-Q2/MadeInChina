@@ -1,17 +1,23 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript  {
+public class Armor : Items
+{
 
 
     float Speed = -0.75f;
-    int Armor = 1;
+    int Armour = 1;
 
-    void UpdateStats()
+    void Start()
     {
-        LevelController.player.Armour += Armor;
+        Name = "Armour";
+    }
+
+    public override void UpdateStats()
+    {
+        LevelController.player.Armour += Armour;
         LevelController.player.MoveSpeed += Speed;
     }
-	
 }

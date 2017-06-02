@@ -17,6 +17,6 @@ public class ArmorCount : MonoBehaviour {
 	}
     public void DisplayArmorCount()
     {
-        armorCount.text = "Armor: " + LevelController.player.armour.ToString();
+        armorCount.text = "Armor: " + LevelController.player.Armour;
     }
 }
