@@ -222,6 +222,8 @@ MonoBehaviour:
   MoveSpeed: 4
   Armour: 0
   enemiesKilled: 0
+  attackCollider: {fileID: 65581906901099222, guid: dc50eb999c51db841b02f3b013fbd3d5,
+    type: 2}
 --- !u!114 &114514376152382982
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -52,12 +52,11 @@ public class Player : Stats
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Attack!!");
-            Vector3 mouseDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-            Instantiate(attackCollider, (transform.position - mouseDir), Quaternion.identity);
+            Instantiate(attackCollider, (LevelController.level.TileToWorld(new Tile(tile.X + 1, tile.Y))), Quaternion.identity, transform);
         }
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
         Debug.Log("Collsion: " + col);
         if (Input.GetMouseButtonDown(0))

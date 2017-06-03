@@ -13,7 +13,6 @@ public class Enemy : Stats {
 	}
 	
 	void Update () {
-            Debug.Log("Enemy Health: " + Health);
         if (Health <= 0)
         {
             Destroy(gameObject);
