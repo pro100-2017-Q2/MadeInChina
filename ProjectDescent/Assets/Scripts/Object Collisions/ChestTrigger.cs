@@ -5,38 +5,44 @@ using UnityEngine;
 
 public class ChestTrigger : MonoBehaviour {
     
-    Random rand = new Random();
+    public Items[] items;
+
+    public Items inChestItem;
+    bool isPickedUp = false;
+
+    void Start()
+    {
+        inChestItem = items[Random.Range(0, items.Length)];
+    }
 
     void OnTriggerEnter(Collider col)
     {
-        if(col.GetComponentInParent<Player>() == null)
+        if(col.GetComponentInParent<Player>() == null || isPickedUp == true)
         {
             return;
         }
-        
-        int randomNumber = Random.Range(1, 101);
-
-        //if (randomNumber <= 5)
+        //Debug.Log("Pick up " + inChestItem.Name);
+        //if (Input.GetKeyUp(KeyCode.F))
         //{
-        //    //Player Picks up Bazooka
-        //    //Player.Gun = true;
+        //    Debug.Log("Picked up: " + inChestItem.Name);
+        //    inChestItem.UpdateStats();
+        //    isPickedUp = true;
         //}
-        if (randomNumber <= 49)
+    }
+
+    void OnTriggerStay(Collider col)
+    {
+        if (isPickedUp == true)
         {
-            //Player gains armor
-            //Stats.Armour += 1.0f;
+            return;
         }
-        if (randomNumber >= 50 && randomNumber <= 75)
+        Debug.Log("Pick up " + inChestItem.Name);
+        if (Input.GetKeyUp(KeyCode.F))
         {
-            //Player gains strength
-            //Stats.Strength += 1;
+            Debug.Log("Picked up: " + inChestItem.Name);
+            inChestItem.UpdateStats();
+            isPickedUp = true;
         }
-        if (randomNumber >= 76)
-        {
-            //player gains speed
-            //Stats.MoveSpeed += 1;
-        }
-       
     }
 
 }

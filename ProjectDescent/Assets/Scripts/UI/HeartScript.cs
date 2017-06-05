@@ -9,7 +9,6 @@ public class HeartScript : MonoBehaviour {
     public RectTransform heart3;
     // Use this for initialization
     void Start () {
-        LevelController.player.Health = 2;
 	}
 	
 	// Update is called once per frame
@@ -25,6 +24,12 @@ public class HeartScript : MonoBehaviour {
         {
             heart1.gameObject.SetActive(false);
         }
+        else if(LevelController.player.Health <= 0){
+            heart1.gameObject.SetActive(false);
+            heart2.gameObject.SetActive(false);
+            heart3.gameObject.SetActive(false);
+        }
+            
 
-	}
+    }
 }
