@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4195945901743176}
   m_Layer: 9
-  m_Name: Chest Object
+  m_Name: ChestObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,13 +161,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1991783392834668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8fb77ca1dba3ab459c273a3ff651029, type: 3}
+  m_Script: {fileID: 11500000, guid: a843c06aec207e14abf63f8eeca50632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 114715558270528274, guid: 9655496292f55de43aeb6e34c43f7162, type: 2}
-  - {fileID: 114864163571636596, guid: 0985e48618322824687d66490744df57, type: 2}
-  - {fileID: 114751694632004304, guid: d1c45be04cca3634a8539db1be8c62b2, type: 2}
+  - {fileID: 114751694632004304, guid: ea9d97fa3198f6e499733a22ee62e669, type: 2}
+  - {fileID: 114864163571636596, guid: d1d8f83fbbe73ca40b15782948a73994, type: 2}
+  - {fileID: 114715558270528274, guid: 2c8b406bdafb47d46be174e7155e9904, type: 2}
   inChestItem: {fileID: 0}
 --- !u!212 &212910504296084144
 SpriteRenderer:

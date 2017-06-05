@@ -13,9 +13,9 @@ public class Enemy : Stats {
 	}
 	
 	void Update () {
-            Debug.Log("Enemy Health: " + Health);
         if (Health <= 0)
         {
+            LevelController.player.enemiesKilled++;
             Destroy(gameObject);
         }
 
