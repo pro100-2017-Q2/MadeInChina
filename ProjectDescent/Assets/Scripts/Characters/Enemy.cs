@@ -15,6 +15,7 @@ public class Enemy : Stats {
 	void Update () {
         if (Health <= 0)
         {
+            LevelController.player.enemiesKilled++;
             Destroy(gameObject);
         }
 
