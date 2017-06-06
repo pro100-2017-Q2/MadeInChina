@@ -13,22 +13,23 @@ public class HeartScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(LevelController.player.Health < 3)
+		if(LevelController.player.Health < 3 && heart3.gameObject.activeInHierarchy)
         {
             heart3.gameObject.SetActive(false);
-        } else if(LevelController.player.Health < 2)
+        }
+        if(LevelController.player.Health < 2 && heart2.gameObject.activeInHierarchy)
         {
             heart2.gameObject.SetActive(false);
         }
-        else if(LevelController.player.Health < 1)
+        if(LevelController.player.Health < 1 && heart1.gameObject.activeInHierarchy)
         {
             heart1.gameObject.SetActive(false);
         }
-        else if(LevelController.player.Health <= 0){
-            heart1.gameObject.SetActive(false);
-            heart2.gameObject.SetActive(false);
-            heart3.gameObject.SetActive(false);
-        }
+        //if(LevelController.player.Health <= 0){
+        //    heart1.gameObject.SetActive(false);
+        //    heart2.gameObject.SetActive(false);
+        //    heart3.gameObject.SetActive(false);
+        //}
             
 
     }

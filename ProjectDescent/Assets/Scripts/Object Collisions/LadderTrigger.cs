@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class LadderTrigger : MonoBehaviour {
 
-        void OnLadderTrigger(Collider col)
+        void OnTriggerEnter(Collider col)
         {
             //Spawn play on a new map
+
             
         }
     }
