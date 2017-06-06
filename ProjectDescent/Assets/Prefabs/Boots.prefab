@@ -48,7 +48,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1286151703769260}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c12ff0867da6daa459f70ea935adb332, type: 3}
+  m_Script: {fileID: 11500000, guid: 76b2af355cac57446a9db53ef8e8e6b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Boots
