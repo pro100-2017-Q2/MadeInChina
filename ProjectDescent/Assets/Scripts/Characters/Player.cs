@@ -26,7 +26,11 @@ public class Player : Stats
     {
         if (Health <= 0)
         {
-            Debug.Log("Death");
+            if (!LevelController.playerDead)
+            {
+                LevelController.playerDead = true;
+                return;
+            }
             Destroy(gameObject);
         }
 
