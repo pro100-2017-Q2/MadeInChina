@@ -7,17 +7,20 @@ public class ChestFunctionality : MonoBehaviour
 {
     
     public Text chestItem;
+    public string name = "";
+
     void Start()
     {
         chestItem = GetComponentInChildren<Text>();
-        DisplayChestItem();
+        DisplayChestItem(name);
     }
     void Update()
     {
-        DisplayChestItem();
+        DisplayChestItem(name);
     }
-    public void DisplayChestItem()
+    public void DisplayChestItem(string _name)
     {
-        chestItem.text = "hello";
+        name = _name;
+        chestItem.text = name;
     }
 }
