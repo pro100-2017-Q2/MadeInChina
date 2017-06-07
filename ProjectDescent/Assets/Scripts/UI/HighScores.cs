@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HighScores : MonoBehaviour {
 
-    const string privateCode = "BhHMncKK9E-zgjiOIi1WWgLGhnGVHT70K5hHEWy26s9A";
-    const string publicCode = "5924c8ad758d0803446ce027";
+    const string privateCode = "HX2zEpGCmEee9CZHRlppeQFJF8t4IChUeu48FblJlmig";
+    const string publicCode = "59374a1b758d150344644186";
     const string webURL = "http://dreamlo.com/lb/";
 
     public Highscore[] highscoresList;
