@@ -6,8 +6,6 @@ public class LadderTrigger : MonoBehaviour {
 
         void OnTriggerEnter(Collider col)
         {
-            //Spawn play on a new map
-
             
         }
     }

@@ -507,6 +507,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4248661064446674, guid: f6f776ae308d0254eaa5b3ea027ebaec, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6f776ae308d0254eaa5b3ea027ebaec, type: 2}
   m_IsPrefabParent: 0
@@ -876,6 +880,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 1875991104746414, guid: 08920e7af16df864abf8651528367e6e,
     type: 2}
+  ladderPrefab: {fileID: 1310987513648234, guid: 74381323e2b269b4994c4884055fd965,
+    type: 2}
   canvas: {fileID: 1735884728}
   DeathScreen: {fileID: 1299563571210486, guid: 292553efed6e5b84c9dceaa2385ff356,
     type: 2}
@@ -990,7 +996,7 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 1789186092448538, guid: 7188771d2d2275a47a3f05a4eb139a8f, type: 2}
   spawnedObjects: []
-  threshold: 10
+  threshold: 5
 --- !u!1 &1451312251
 GameObject:
   m_ObjectHideFlags: 0

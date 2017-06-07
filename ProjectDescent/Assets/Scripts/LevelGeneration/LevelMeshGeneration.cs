@@ -53,7 +53,7 @@ public class LevelMeshGeneration : MonoBehaviour {
         List<int> wallTriangles = new List<int>();
         Mesh wallMesh = new Mesh();
 
-        float wallHeight = 5;
+        float wallHeight = 2.5f;
 
         foreach(List<int> outline in outlines)
         {

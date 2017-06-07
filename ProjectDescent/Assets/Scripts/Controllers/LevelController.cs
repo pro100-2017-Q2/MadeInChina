@@ -11,6 +11,8 @@ public class LevelController : MonoBehaviour {
     public static LevelGeneration level;
     public static Player player;
 
+    public GameObject ladderPrefab;
+
     public Canvas canvas;
     public static bool playerDead = false;
     public GameObject DeathScreen;
@@ -26,7 +28,9 @@ public class LevelController : MonoBehaviour {
         Vector3 playerStart = level.TileToWorld(level.mainRoom.tiles[rand.Next(level.mainRoom.tiles.Count)]);
         GameObject playerObject = Instantiate(playerPrefab, playerStart, Quaternion.identity);
 
-        //FindObjectOfType<CameraController>().player = playerObject;
+        Vector3 LadderPos = level.TileToWorld(level.mainRoom.tiles[rand.Next(level.mainRoom.tiles.Count)]);
+        Instantiate(ladderPrefab, LadderPos, Quaternion.identity);
+
         player = playerObject.GetComponent<Player>();
     }
 	
