@@ -13,6 +13,7 @@ public class PauseGame : MonoBehaviour {
         {
             Pause();
         }
+        Debug.Log("Pause");
 	}
     public void Pause()
     {

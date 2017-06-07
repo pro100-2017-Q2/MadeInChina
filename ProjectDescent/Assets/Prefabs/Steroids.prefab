@@ -48,8 +48,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1025871580129022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb93d243dbf830488a2a6b31d78aa0e, type: 3}
+  m_Script: {fileID: 11500000, guid: a8308d7149a191a469c30c5738028502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Steroids
-  ChestMenu: {fileID: 0}

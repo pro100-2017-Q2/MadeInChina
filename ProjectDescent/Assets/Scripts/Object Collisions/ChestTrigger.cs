@@ -8,7 +8,7 @@ public class ChestTrigger : MonoBehaviour {
     public Items[] items;
     public RectTransform chestMenu;
     public Items inChestItem;
-    bool isPickedUp = false;
+    public bool isPickedUp = false;
 
     public void ExitChest()
     {
@@ -23,26 +23,9 @@ public class ChestTrigger : MonoBehaviour {
         chestMenu = FindObjectOfType<ChestFunctionality>().GetComponentInParent<RectTransform>();
     }
 
-    void Update()
-    {
-
-    }
-
-    void OnTriggerEnter(Collider col)
-    {
-        if(col.GetComponentInParent<Player>() == null || isPickedUp == true)
-        {
-            return;
-        }
-
-        chestMenu.gameObject.SetActive(true);
-
-        inChestItem.ChestMenu.DisplayChestItem(inChestItem.Name);
-    }
-
     void OnTriggerStay(Collider col)
     {
-        if (isPickedUp == true)
+        if (col.GetComponentInParent<Player>() == null || isPickedUp == true)
         {
             return;
         }

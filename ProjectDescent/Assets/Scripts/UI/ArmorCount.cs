@@ -8,7 +8,7 @@ public class ArmorCount : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         armorCount = GetComponentInChildren<Text>();
-        //DisplayArmorCount();
+        DisplayArmorCount();
 	}
 	
 	// Update is called once per frame
