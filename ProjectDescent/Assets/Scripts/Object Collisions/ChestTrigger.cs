@@ -6,13 +6,21 @@ using UnityEngine;
 public class ChestTrigger : MonoBehaviour {
     
     public Items[] items;
-
+    public RectTransform chestMenu;
     public Items inChestItem;
     public bool isPickedUp = false;
 
+    public void ExitChest()
+    {
+        if (chestMenu.gameObject.activeInHierarchy == true)
+        {
+                chestMenu.gameObject.SetActive(false);
+        }
+    }
     void Start()
     {
         inChestItem = items[Random.Range(0, items.Length)];
+        chestMenu = FindObjectOfType<ChestFunctionality>().GetComponentInParent<RectTransform>();
     }
 
     void OnTriggerStay(Collider col)
@@ -28,6 +36,16 @@ public class ChestTrigger : MonoBehaviour {
             inChestItem.UpdateStats();
             isPickedUp = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ExitChest();
+        }
+    }
+
+    void OnTriggerLeave(Collider col)
+    {
+        ExitChest();
     }
 
 }
