@@ -432,6 +432,8 @@ MonoBehaviour:
   MoveSpeed: 4
   Armour: 0
   enemiesKilled: 0
+  deathScreen: {fileID: 114448707456663552, guid: 0f65e617ce56fb94a9d5e0124c50ff0a,
+    type: 2}
   attackColliderPrefab: {fileID: 65581906901099222, guid: dc50eb999c51db841b02f3b013fbd3d5,
     type: 2}
   spriteDictionary:

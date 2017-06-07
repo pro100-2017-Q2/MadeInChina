@@ -11,9 +11,14 @@ public class LevelController : MonoBehaviour {
     public static LevelGeneration level;
     public static Player player;
 
+    public Canvas canvas;
+    public static bool playerDead = false;
+    public GameObject DeathScreen;
+
     void Awake()
     {
         level = FindObjectOfType<LevelGeneration>();
+        canvas = FindObjectOfType<Canvas>();
     }
 
 	void Start () {
@@ -26,7 +31,9 @@ public class LevelController : MonoBehaviour {
     }
 	
 	void Update () {
-
-		
+        if (playerDead)
+        {
+            Instantiate(DeathScreen, canvas.transform);
+        }
 	}
 }

@@ -7,7 +7,7 @@ public class ArmorCount : MonoBehaviour {
     public Text armorCount;
 	// Use this for initialization
 	void Start () {
-        armorCount = GetComponent<Text>();
+        armorCount = GetComponentInChildren<Text>();
         DisplayArmorCount();
 	}
 	
